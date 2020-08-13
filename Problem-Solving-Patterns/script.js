@@ -118,3 +118,35 @@ function countUniqueValues(array){
 // console.log(countUniqueValues([])) //0
 // console.log(countUniqueValues([1,1,1,1,1,2])) // 2
 // console.log(countUniqueValues([1,2,3,4,4,4,7,7,12,12,13])) //7
+
+
+//Sliding Window Approach
+  //This pattern involves creating a window which can either be an array or number from one position to another
+  //Depending on a certain condition the window either increases or closes and a new window is created.
+  //very useful for keeping track of a subset of data in an array/string etc.
+
+//Write a function called maxSubArraySum,
+//which accepts an array of integers and a number called num
+//The function should calculate the sum of num consecutive elements in the array.
+//return the sum at the end.
+
+function maxSubArraySum(array, num) {
+  let max = 0;
+  let temp = 0 
+  if(array.length < num) return null;
+  //sum together the first 3 digits
+  for(let i = 0; i < num; i++){
+    max += array[i]
+  }
+  temp = max
+  //start at indeces num (3) in array
+  //with each loop remove the first indices and add the next so add 5,2,5, then 2,5,6 then 5,6,7 etc
+  //each time I loop set the value of max to the highest of the two numbers
+  for(let i = num; i < array.length; i++){
+    temp = temp - array[i-num] + array[i]
+    max = Math.max(max, temp)
+  }
+  return max
+}
+
+maxSubArraySum([5,5,2,5,6,7,8,1,3], 3)
