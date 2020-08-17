@@ -140,7 +140,7 @@ function maxSubArraySum(array, num) {
   }
   temp = max
   //start at indeces num (3) in array
-  //with each loop remove the first indices and add the next so add 5,2,5, then 2,5,6 then 5,6,7 etc
+  //with each loop subtract the first indices and add the next so add 5,2,5, then 2,5,6 then 5,6,7 etc
   //each time I loop set the value of max to the highest of the two numbers
   for(let i = num; i < array.length; i++){
     temp = temp - array[i-num] + array[i]
@@ -148,5 +148,54 @@ function maxSubArraySum(array, num) {
   }
   return max
 }
-
 maxSubArraySum([5,5,2,5,6,7,8,1,3], 3)
+
+
+//Divide and Conquer
+  //This pattern involves divding a dataset into smaller chunks
+  //repeating a process with the subset of data.
+  //can tremendously decrease time complexity
+
+
+//Given a sorted array of integers, write a function called search
+//that accepts a value and an array and returns the index of the array where the value is located
+//if the value does not exist return -1
+  //naive solution with O(n) time complexity
+  //linear search
+
+function linearSearch(array, val){
+  for (let i = 0; i < array.length; i++){
+    if (array[i] === val){
+      return i
+    }
+  }
+  return -1
+}
+
+// lniearSearch([3,6,8,9], 8) //2
+
+//Binary search is a divide and conquor algo.
+  //find the middle of a sorted array
+  //depending on weather the number is < or > the val 
+  //take only the portion of the array where the val can be found.
+  
+function binarySearch(array, val){
+  let min = 0
+  let max = array.length -1
+
+  while(min <= max){
+    let middle = Math.floor((min + max) / 2)
+    let currentElement = array[middle]
+
+    if (currentElement < val){
+      min = middle + 1
+    } else if (currentElement > val){
+      max = middle - 1
+    } else {
+      return middle
+    }
+  }
+  return -1
+}
+
+//binarySearch([3,8,10,23,27,38,40], 27) //4
