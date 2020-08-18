@@ -148,7 +148,7 @@ function maxSubArraySum(array, num) {
   }
   return max
 }
-maxSubArraySum([5,5,2,5,6,7,8,1,3], 3)
+// maxSubArraySum([5,5,2,5,6,7,8,1,3], 3)
 
 
 //Divide and Conquer
@@ -172,7 +172,7 @@ function linearSearch(array, val){
   return -1
 }
 
-// lniearSearch([3,6,8,9], 8) //2
+// linearSearch([3,6,8,9], 8) //2
 
 //Binary search is a divide and conquor algo.
   //find the middle of a sorted array
