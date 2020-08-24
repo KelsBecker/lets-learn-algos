@@ -28,3 +28,19 @@ function sameFrequency(num1, num2){
 // console.log(sameFrequency(182, 281))
 // console.log(sameFrequency(3589578, 5879385))
 // console.log(sameFrequency(77789, 97878))
+
+//Implement a function called areThereDuplicates() which accepts a variable number of arguments
+//and checks if there are any duplicates among the arguments passed in.
+
+function areThereDuplicates(...args) {
+  let noDuplicates = new Set(args)
+  if(noDuplicates.size === args.length){
+    return false
+  } else {
+    return true
+  }
+}
+
+// console.log(areThereDuplicates(1,2,3))
+// console.log(areThereDuplicates(1,2,2))
+// console.log(areThereDuplicates('a','b','c','a'))
