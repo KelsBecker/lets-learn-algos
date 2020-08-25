@@ -71,3 +71,24 @@ function averagePair(sortedArray, avg){
 // console.log(averagePair([1,3,3,5,6,7,10,12,19], 8)) //true
 // console.log(averagePair([-1,0,3,4,5,6], 4.1)) //false
 // console.log(averagePair([], 4)) //false
+
+//Write a function called isSubsequence
+//which takes in two strings and determines if the characters in the first string form a subsequence in of the characters in the second string
+//in other words the function should check if the characters in the first string appear somewhere in the second string
+//ORDER MATTERS
+
+function isSubsequence(string1, string2){
+  let i = 0;
+  let j = 0;
+  while(j < string2.length){
+    if(string1[i] === string2[j])i++;
+    if(i === string1.length)return true;
+    j++
+  }
+  return false
+}
+
+// console.log(isSubsequence('hello', 'hello world'))
+// console.log(isSubsequence('sing', 'sting'))
+// console.log(isSubsequence('abc', 'abracadabra'))
+// console.log(isSubsequence('abc', 'acb'))
