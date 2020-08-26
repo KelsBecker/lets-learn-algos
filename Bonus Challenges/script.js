@@ -118,3 +118,32 @@ function maxSubarraySum(array, num){
 // console.log(maxSubarraySum([-3,4,0,-2,6,-1], 2)) //5
 // console.log(maxSubarraySum([3,-2,7,-4,1,-1,4,-2,1], 2)) //5
 // console.log(maxSubarraySum([2,3], 3)) //null
+
+
+//Write a function called minSubArrayLen 
+//which accepts two parameters - an array of positive integers and a positive integer
+//should return the minimal length of a contiguous subarray of which the sub is greater than or equal to the integer passed to the function
+//if there isn't one, return 0 instead
+
+function minSubArrayLen(array, sum){
+  let total = 0;
+  let start = 0;
+  let end = 0;
+  let minLength = Infinity;
+  while(start < array.length){
+    if(total < sum && end < array.length){
+      total += array[end]
+      end++ 
+    } else if(total >= sum){
+      minLength = Math.min(minLength, end-start)
+      total -= array[start]
+      start++
+    } else {
+      break;
+    }
+  }
+  return minLength === Infinity ? 0 : minLength
+}
+// console.log(minSubArrayLen([2,3,1,2,4,3], 7))
+// console.log(minSubArrayLen([2,1,6,5,4], 9))
+// console.log(minSubArrayLen([3,1,7,11,2,9,8,21,62,33,19], 52))
