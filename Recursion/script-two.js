@@ -56,5 +56,15 @@ function fib(num){
 }
 // console.log(fib(4))
 // console.log(fib(10))
-  
+
+
+//Write a function called reverse that accepts a string and returns that string reversed
+//this is for practice, the solution can be done much more efficiently using other strategies
+
+function reverse(str){
+  if(str === '') return '';
+  return reverse(str.substring(1)) + str.charAt(0);
+}
+// console.log(reverse('awesome'))
+// console.log(reverse('learning is fun'))
 
