@@ -33,6 +33,14 @@ function linearSearch(array, val){
 // console.log(linearSearch([1,4,55,17,12], 17))
 //time complexity is linear O(n), as the length of the array grow, so does the amount of time
 
+
+//Binary Search
+  //Only works on sorted data
+  //Can be much faster than a linear search, especially with large data structures
+  //Use the Divide and Conquer technique. Start at the middle of the array,
+  //create pointers representing the beginning and end of the array
+  //depending on if the middle is greater than or less than the value being searched
+  //move the appropriate pointer, which will shrink the portion of the data being searched.
 //write a function that accepts a sorted array and a value (both numbers)
 //create a left pointer at beginning of array and right pointer at end of array
 //while the left pointer comes before the right pointer
