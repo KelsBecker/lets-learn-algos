@@ -64,3 +64,23 @@ function binarySearch(sortedArr, val){
 // console.log(binarySearch([1,2,3,4,5], 2))
 // console.log(binarySearch([1,4,5,7,9,10,15,17,19,23], 19))
 // console.log(binarySearch([2,3,4,6,8,9,11,15,28,33,45,56,67], 29))
+// time complexity of binarySearch is best case linear O(1) because the correct value could be the first number in the middle of the array
+// worst and average case time complexity is Logarithmic log base 2 of n or O(log n) 
+  //exaplanation: because if we have an array of 16 values it would take 4 trials to find the value or determine the value doesn't exist (2*2*2*2 = 16)
+  //if the array.length doubles it will take 5 trials to determine location of value or non existence of value (2*2*2*2*2 = 32)
+
+//Naive String Search
+  //count the number of times a smaller string appears in a longer string and return the count
+
+function stringSearch(string, pattern){
+  let count = 0
+  for(let i = 0; i < string.length; i++){
+    for(let j = 0; j < pattern.length; j++){
+      //string[i+j] lets me look forward in the long string as I loop through the patter to be matched
+      if(pattern[j] !== string[i+j]) break
+      if(j === pattern.length -1) count++
+    }
+  }
+  return count
+}
+console.log(stringSearch('haha harry', 'ha'))
