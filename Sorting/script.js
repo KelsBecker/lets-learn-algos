@@ -59,3 +59,32 @@ function optimizedBubbleSort(array){
 
 //Time Complexity, due to the nested loop in bubbleSort time complexity is generally Quadratic / O(n^2)
 //If the data is nearly sorted and the optimized version is used it could be Linear O(n)
+
+
+//Selection Sort
+  //similar to bubble sort, but instead of placing large values into the sorted position it starts with small values
+
+//Selection Sort Psuedocode
+  //store the first element as the smallest value 
+  //compare this element to the next element in the array until you find a smaller value
+  //if a smaller number is found designate it as the new minimum and continue to the end of the array
+  //if the minimum is not the original value swap these two elements
+  //continue until the array is sorted
+
+  function selectionSort(array){
+    for(let i = 0; i < array.length; i++){
+      let min = i
+      for(let j = i + 1; j < array.length; j++){
+        if(array[j] < array[min]){
+          min = j
+        }
+      }
+      let temp = array[i]
+      array[i] = array[min]
+      array[min] = temp
+    }
+    return array
+  }
+  // console.log(selectionSort([12,5,2,21,30,7]))
+  // console.log(selectionSort([64,24,84,94,14]))
+  // console.log(selectionSort([100,-45,76,18,45]))
