@@ -79,12 +79,17 @@ function optimizedBubbleSort(array){
           min = j
         }
       }
-      let temp = array[i]
-      array[i] = array[min]
-      array[min] = temp
+      if(i !== min){
+        let temp = array[i]
+        array[i] = array[min]
+        array[min] = temp
+      }
     }
     return array
   }
   // console.log(selectionSort([12,5,2,21,30,7]))
   // console.log(selectionSort([64,24,84,94,14]))
   // console.log(selectionSort([100,-45,76,18,45]))
+
+  //Selection sort is not the most efficient. Roughly it is Quadratic O(n^2)
+  //because as the length of the array grows the number of comparisons grows, rougly at the rate of n*n
