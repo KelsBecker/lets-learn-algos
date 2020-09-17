@@ -1,4 +1,4 @@
-//Bubble Sort
+//BUBBLE SORT
   //start looping with a variable called i from the end of the array to the beginning of the array
   //start an inner loop with a variable called j loop from the beginning until i-1
   //if array[j] is greater than array[j+1], swap those two values
@@ -59,9 +59,10 @@ function optimizedBubbleSort(array){
 
 //Time Complexity, due to the nested loop in bubbleSort time complexity is generally Quadratic / O(n^2)
 //If the data is nearly sorted and the optimized version is used it could be Linear O(n)
+//Space Complexity 0(1)
 
 
-//Selection Sort
+//SELECTION SORT
   //similar to bubble sort, but instead of placing large values into the sorted position it starts with small values
 
 //Selection Sort Psuedocode
@@ -93,3 +94,32 @@ function optimizedBubbleSort(array){
 
   //Selection sort is not the most efficient. Roughly it is Quadratic O(n^2)
   //because as the length of the array grows the number of comparisons grows, rougly at the rate of n*n
+  //Space Complexity 0(1)
+
+
+  //INSERTION SORT
+    //loop through the array starting from index 1 aka i = 1 
+    //make variable currentVal = array[i]
+    //make variable j = the element before array[i] aka j = array[i-1]
+    //as long as array[j] >= to 0 and array[j] is > currentVal
+    //place array[j] forward one place
+    //decrement j each loop so on the final loop j will be one less than wher currentVal should be
+    //place currentVal at array[j + 1]
+
+    function insertionSort(array){
+      for(let i = 1; i < array.length; i++){
+        let currentVal = array[i]
+        let j = i - 1
+        while (j >= 0 && array[j] > currentVal){
+          array[j+1] = array[j]
+          j--
+        }
+        array[j+1] = currentVal
+      }
+      return array
+    }
+    // console.log(insertionSort([3,1,5,4,2]))
+    // console.log(insertionSort([2,1,9,76,4]))
+    // console.log(insertionSort([-12,18,2,-94,1,23,5]))
+//Time Complexity is roughly Quadratic O(n^2) because as the array grows we have to make n^2 number of comparisons
+//Space Complexity 0(1)
