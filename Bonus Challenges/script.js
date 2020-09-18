@@ -147,3 +147,75 @@ function minSubArrayLen(array, sum){
 // console.log(minSubArrayLen([2,3,1,2,4,3], 7))
 // console.log(minSubArrayLen([2,1,6,5,4], 9))
 // console.log(minSubArrayLen([3,1,7,11,2,9,8,21,62,33,19], 52))
+
+
+//Given a sorted array and a target value, 
+//return the index if the target is found. 
+//If not, return the index where it would be if it were inserted in order.
+//You may assume no duplicate values
+
+function searchInsert(nums, target) {
+  let index = 0
+  while(index < nums.length){
+    if(nums[index] === target || nums[index] > target){
+      return index
+    } else {
+      index++
+    }
+  }
+  return index     
+};
+// console.log(searchInsert([1,3,5,6],5))
+// console.log(searchInsert([1,3,5,6],2))
+// console.log(searchInsert([1,3,5,6],7))
+// console.log(searchInsert([1,3,5,6],0))
+
+
+//Given a string s consists of upper/lower-case alphabets and empty space characters ' ', 
+//return the length of last word 
+// (last word means the last appearing word if we loop from left to right) in the string.
+//If the last word does not exist, return 0.
+//Note: A word is defined as a maximal substring consisting of non-space characters only
+
+function lengthOfLastWord(string) {
+  let wordLength = 0
+  let beforeEmptyChar = true
+  if(string.length === 0) return wordLength;
+  for(let i = string.length - 1; i >= 0; i--){
+    if(string.charAt(i) !== ' '){
+      wordLength++
+      beforeEmptyChar = false
+    } else {
+      if(!beforeEmptyChar){
+      break
+      }
+    }
+  }
+  return wordLength
+};
+// console.log(lengthOfLastWord(''))
+// console.log(lengthOfLastWord('Hello World '))
+
+
+//Given a non-empty array of digits representing a non-negative integer, increment one to the integer.
+//The digits are stored such that the most significant digit is at the head of the list, 
+//and each element in the array contains a single digit.
+//You may assume the integer does not contain any leading zero, except the number 0 itself
+//Examples [1,2,3] will be [1,2,4] representing #124 [9,9] will be [1,0,0] representing adding 1 to 99 which will be 100
+
+function plusOne(digits) {
+  if(digits.length === 0) return;
+  for(let i = digits.length -1; i >= 0; i--){
+    if(digits[i] !== 9){
+      digits[i] = digits[i] + 1
+      return digits
+    } else {
+      digits[i] = 0
+    }
+  }
+  digits.unshift(1)
+  return digits
+};
+// console.log(plusOne([9,9]))
+// console.log(plusOne([1,2,3]))
+// console.log(plusOne([4,3,2,1]))
