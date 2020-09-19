@@ -219,3 +219,49 @@ function plusOne(digits) {
 // console.log(plusOne([9,9]))
 // console.log(plusOne([1,2,3]))
 // console.log(plusOne([4,3,2,1]))
+
+
+//Given an array of integers that is already sorted in ascending order, 
+//find two numbers such that they add up to a specific target number.
+//The function twoSum should return indices of the two numbers such that they add up to the target, 
+//where index1 must be less than index2
+
+function twoSum(numbers, target) {
+  let start = 0
+  let end = numbers.length - 1
+  if(numbers.length < 1) return;
+
+  while(start < end){
+    if(numbers[start] + numbers[end] < target){
+      start++
+    } else if(numbers[start] + numbers[end] > target) {
+      end--
+    } else {
+      return [start+1, end+1]
+    }
+  }    
+};
+// console.log(twoSum([2,7,11,15], 9))
+// console.log(twoSum([2,3,4], 6))
+// console.log(twoSum([-1, 0], -1))
+// console.log(twoSum([1,2], 3))
+
+
+//Given an array of integers, find if the array contains any duplicates.
+//Your function should return true if any value appears at least twice in the array, 
+//and it should return false if every element is distinct.
+
+function containsDuplicate(nums) {
+  let valueObj = {}
+  for(let i = 0; i < nums.length; i++){
+    valueObj[nums[i]] ? valueObj[nums[i]]++ : valueObj[nums[i]] = 1
+  }
+  for(const key in valueObj){
+    if(valueObj[key] > 1){
+      return true
+    }
+  }
+  return false
+};
+// console.log(containsDuplicate([1,2,3,4]))
+// console.log(containsDuplicate([1,1,3,4]))
