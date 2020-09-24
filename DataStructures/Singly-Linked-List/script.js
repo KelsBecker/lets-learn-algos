@@ -81,7 +81,21 @@ class SinglyLinkedList {
     return this
   }
 
+  //access a node at a certain location
+  get(index){
+    if(index < 0 || index >= this.length) return null;
+    let count = 1
+    let current = this.head
+    while(count <= index){
+        current = current.next
+        count++
+    }
+    return current
+  }
+  
 }
+
+
 
 let list = new SinglyLinkedList();
 list.push(22)
