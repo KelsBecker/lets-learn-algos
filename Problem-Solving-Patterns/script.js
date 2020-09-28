@@ -199,3 +199,22 @@ function binarySearch(array, val){
 }
 
 //binarySearch([3,8,10,23,27,38,40], 27) //4
+
+var isAnagram = function(s, t) {
+  let letterObj = {};
+  if(s.length !== t.length) return false;
+
+  for(let i = 0; i < s.length; i++){
+    let letter = s[i];
+    letterObj[letter] ? letterObj[letter]++ : letterObj[letter] = 1 
+  }
+  for(let j = 0; j < t.length; j++){
+    let letter = t[j]
+    if(letterObj[letter]){
+      letterObj[letter]--
+    } else {
+      return false
+    }
+  }
+  return true 
+};
