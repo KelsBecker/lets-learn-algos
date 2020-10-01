@@ -93,6 +93,37 @@ class SinglyLinkedList {
     return current
   }
   
+  //replace the value at a certain index
+  set(index, val){
+    let current = this.get(index)
+    if(current){
+      current.value = val
+      return true
+    } 
+    return false;
+  }
+
+  //insert a new node at an index
+  insert(index, val){
+    if(index < 0 || index > this.length){
+      return false
+    }
+    if(index === this.length){
+      this.push(val)
+      return true
+    } else if(index === 0){
+      this.unshift(val)
+      return true
+    } else {
+      let previous = this.get(index - 1)
+      let newNode = new Node(val)
+      let newNext = previous.next
+      previous.next = newNode
+      newNode.next = newNext
+      this.length ++
+      return true
+    }
+  }
 }
 
 
