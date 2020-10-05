@@ -81,7 +81,7 @@ class SinglyLinkedList {
     return this
   }
 
-  //access a node at a certain location
+//access a node at a certain location
   get(index){
     if(index < 0 || index >= this.length) return null;
     let count = 1
@@ -93,7 +93,7 @@ class SinglyLinkedList {
     return current
   }
   
-  //replace the value at a certain index
+//replace the value at a certain index
   set(index, val){
     let current = this.get(index)
     if(current){
@@ -103,7 +103,7 @@ class SinglyLinkedList {
     return false;
   }
 
-  //insert a new node at an index
+//insert a new node at an index
   insert(index, val){
     if(index < 0 || index > this.length){
       return false
@@ -124,6 +124,23 @@ class SinglyLinkedList {
       return true
     }
   }
+
+//remove a node from a specific index
+  remove(index){
+    if(index < 0 || index >= this.length) return undefined;
+    if(index === this.length -1){
+      this.pop()
+    } else if(index === 0){
+      this.shift()
+    } else {
+      let previous = this.get(index -1)
+      let removed = previous.next
+      previous.next = removed.next
+      this.length--
+      return removed
+    }
+  }
+
 }
 
 
