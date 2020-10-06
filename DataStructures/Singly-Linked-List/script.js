@@ -159,11 +159,20 @@ class SinglyLinkedList {
 
 }
 
-
-
 let list = new SinglyLinkedList();
 list.push(22)
 list.push(18)
 list.push('HI')
 list.push('World!')
 list.push('end')
+
+//Big O 
+  //Insertion: O(1) Constant Time. It doesn't matter how long the list is, insertion takes the same amount of time.
+  //Removal: This depends where in the list the node to be removed is
+    // Removal from the beginning is O(1)
+    // Removal from the end is 0(n)...because we have to iterate through the list till we reach the second to last node
+  //Searching and Accessing: O(n) the length of the list determines how long each search will take or how much needs to be iterated through to randomly access.
+
+//Use Cases
+//Linked Lists are an excellent alternative to arrays when frequent insertion or deletion from the beginning is needed
+//The idea of data structure that consisist of nodes is a great foundation for other DS like queues and stacks
