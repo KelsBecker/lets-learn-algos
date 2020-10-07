@@ -49,10 +49,72 @@ class DoublyLinkedList {
     return oldTail
   }
 
+//remove a node from the beginning of linked list
+  shift(){
+    if(!this.head) return undefined;
+    let oldHead = this.head;
+    if(this.length === 1){
+      this.head = null;
+      this.tail = null;
+    } else {
+      let newHead = oldHead.next;
+      this.head = newHead
+      newHead.prev = null;
+      oldHead.next = null;
+    }
+    this.length--
+    return oldHead
+  }
+
+//add a node to the beginning 
+  unshift(val){
+    let newHead = new Node(val);
+    if(!this.head){
+      this.head = newHead;
+      this.tail = newHead;
+    } else {
+      let oldHead = this.head
+      this.head = newHead
+      newHead.next = oldHead
+      oldHead.prev = newHead
+    } 
+    this.length++
+    return newHead
+  }
+
+//access a node at a given position
+  get(index){
+    if(index < 0 || index >= this.length) return null;
+    let middle = Math.floor(this.length / 2)
+    let current;
+    let count;
+    if(index <= middle){
+      count = 0
+      current = this.head
+      while(count != index){
+        current = current.next
+        count++
+      }
+      return current 
+    } else {
+      count = this.length -1
+      current = this.tail
+      while(count != index){
+        current = current.prev
+        count--
+      }
+      return current 
+    }
+  }
+
 }
 
 
 let list = new DoublyLinkedList()
 list.push('FIRST!')
-list.push('MIDDLE')
+list.push(4)
+list.push('SECOND')
+list.push(22)
+list.push('THIRD')
+list.push(2020)
 list.push('END!')
