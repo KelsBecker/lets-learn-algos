@@ -138,9 +138,27 @@ class DoublyLinkedList {
     return true
   }
 
+  //remove a node from a certin index
+  remove(index){
+    if(index < 0 || index >= this.length) return undefined;
+    if(index === this.length -1){
+      return this.pop()
+    } else if (index === 0){
+      return this.shift()
+    } else {
+      let nodeToRemove = this.get(index)
+      let newCurrent = nodeToRemove.prev
+      let newNext = nodeToRemove.next
+      newCurrent.next = newNext
+      newNext.prev = newCurrent
+      nodeToRemove.prev = null
+      nodeToRemove.next = null 
+      this.length--
+      return nodeToRemove
+    }
+  }
+
 }
-
-
 let list = new DoublyLinkedList()
 list.push('FIRST!')
 list.push(4)
@@ -149,3 +167,12 @@ list.push(22)
 list.push('THIRD')
 list.push(2020)
 list.push('END!')
+
+//Big O for Doubly Linked List
+  //Insertion and Deletion are O(1) constant time, this is really where linked lists excel
+  //Searching is O(n) time increases based on size of n (the input)
+  //Access is O(n) time increases based on size of n (the input)
+
+// Doubly Linked Lists are more efficient than Singly Linked Lists for finding/searching and accessing nodes
+// because it can be done in half the time due to the ability to move forward and backward
+// there is more space/memory required in order to store the previous pointer on every node
