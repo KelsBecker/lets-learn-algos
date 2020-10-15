@@ -71,7 +71,8 @@
   let stack = new Stack()
 
   //Big O of Stacks
-    // insertion and removal O(1) constant time 
+    // insertion and removal O(1) constant time (MUST BE CONSTANT TIME or there is no benefit)
       //We alway add to the front and remove from the front so no traversal is required
-    // Searching and Accessing O(n)
+      // Searching and Accessing O(n) BUT stacks are not used for searching and accessing
+      //Queues are useful for processing tasks and will be used for more complex data structures
 
