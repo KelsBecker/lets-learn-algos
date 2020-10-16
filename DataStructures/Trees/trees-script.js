@@ -22,6 +22,31 @@
     //Are used to store data that can be compared
     //Can be any piece of data stored on a node (typically numbers)
     //Every node to the left of the parent node is always less than the parent
-    //Every node to the right of the parent node is always greater thanthe parent
+    //Every node to the right of the parent node is always greater than the parent
 
+
+  class Node {
+    constructor(val){
+      this.value = val;
+      this.left = null;
+      this.right = null;
+    }
+  }
+
+  class BinarySearchTree {
+    constructor(){
+      this.root = null;
+    }
+
+  //add a node to the tree
+    insert(){
+
+    }
+  }
+
+  let tree = new BinarySearchTree()
+  tree.root = new Node(44)
+  tree.root.left = new Node(22)
+  tree.root.right = new Node(88)
+  tree.root.left.right = new Node(24)
 
