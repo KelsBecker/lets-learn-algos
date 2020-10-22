@@ -265,3 +265,27 @@ function containsDuplicate(nums) {
 };
 // console.log(containsDuplicate([1,2,3,4]))
 // console.log(containsDuplicate([1,1,3,4]))
+
+
+//Given an integer array nums, find the contiguous subarray (containing at least one number) 
+//which has the largest sum and return its sum.
+  //keep track of sum starting from array[0]
+  //compare if nums[i] or nums[i] plus the maxCurrent is greater
+  //compare if current is greater than global
+  //if so current becomes global
+  
+function maxSubArray(nums){
+  let maxCurrent = nums[0]
+  let maxGlobal = nums[0]
+  for(let i = 1; i < nums.length; i++){
+    maxCurrent = Math.max(nums[i], maxCurrent + nums[i])
+    console.log(nums[i])
+    console.log('current', maxCurrent, 'global', maxGlobal)
+    if(maxCurrent > maxGlobal){
+      maxGlobal = maxCurrent
+    }
+  }
+  return maxGlobal
+}
+// console.log(maxSubArray([-2,1,-3,4,-1,2,1,-5,4]))
+// console.log(maxSubArray([0]))
